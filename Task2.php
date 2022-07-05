@@ -1,6 +1,6 @@
 <?php 
 
-namespace Incurrent_dateiseTest\Task2;
+namespace Test_Innowise\Task2;;
 
 
 class Task2
