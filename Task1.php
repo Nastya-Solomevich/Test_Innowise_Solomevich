@@ -1,6 +1,6 @@
 <?php 
 
-namespace InnowiseTest\Task1;
+namespace Test_Innowise\Task1;
 
 class Task1 
 {
