@@ -6,15 +6,13 @@ class Task2
 {
     public static function countOfDays(string $birthdayPerson): string
     {
-        $current_date = date_create(date("d-m-Y"));
+        $currentDate = date_create(date("d-m-Y"));
 
-        $array_date = explode(".", $birthdayPerson);
+        $arrayDate = explode(".", $birthdayPerson);
+        $newBirthDate = implode("-", $arrayDate);
 
-        $new_birth_date = implode("-", $array_date);
-
-        $birth = date_create($new_birth_date);
-
-        $interval = date_diff($current_date, $birth);
+        $birth = date_create($newBirthDate);
+        $interval = date_diff($currentDate, $birth);
 
         return $interval->format('Since ' . $birthdayPerson . ' have passed %R%a days');;
     }
