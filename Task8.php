@@ -1,37 +1,43 @@
-<?php 
+<?php
 
 namespace Test_Innowise\Task8;
 
 class Task8
 {
-
-    public static function main(string $json) 
+    public static function decodeJson(string $json): array
     {
-        $arr_json = json_decode($json);
+        $jsonToStringArray = [];
 
-        foreach ($arr_json as $elem => $data) {
-            if (!is_string($data)){
-                foreach ($data as $new_elem => $new_data)
-                echo $new_elem, ": ", $new_data, "<br>";
-            }
-            else {
-                echo $elem, ": ", $data, "<br>";
+        $arrJson = json_decode($json);
+
+        foreach ($arrJson as $elem => $data) {
+            if (!is_string($data)) {
+                foreach ($data as $newElem => $newData) {
+                    array_push($jsonToStringArray, $newElem . ": " . $newData);
+                }
+            } else {
+                array_push($jsonToStringArray, $elem . ": " . $data);
             }
         }
 
+        return $jsonToStringArray;
     }
-
 }
 
-$json = '{
-    "Title": "The Cuckoos Calling",
-    "Author": "Robert Galbraith",
-    "Detail": {
-    "Publisher": "Little Brown"
-    }
-    }
-    ';
+function main()
+{
+    $json = '{
+            "Title": "The Cuckoos Calling",
+            "Author": "Robert Galbraith",
+            "Detail": {
+            "Publisher": "Little Brown"
+            }
+            }
+            ';
 
-Task8 ::main($json);
+    var_dump(Task8::decodeJson($json));
+}
+
+main();
 
 ?>
