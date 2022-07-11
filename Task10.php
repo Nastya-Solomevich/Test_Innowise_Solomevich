@@ -2,20 +2,16 @@
 
 namespace Test_Innowise\Task10;
 
-class Task10 
+class Task10
 {
-    public static function toOne(int $number) : array
+    public static function toOne(int $number): array
     {
         $arr = [$number];
-        while ($number != 1) 
-        {
-            if ($number % 2 == 0) 
-            {
+        while ($number != 1) {
+            if ($number % 2 == 0) {
                 $number = $number / 2;
                 array_push($arr, $number);
-            }
-            else 
-            {
+            } else {
                 $number = $number * 3 + 1;
                 array_push($arr, $number);
             }
@@ -25,11 +21,9 @@ class Task10
     }
 }
 
-function main() 
+function main()
 {
-    var_dump(Task10 :: toOne(12));
+    var_dump(Task10::toOne(12));
 }
 
 main();
-
-?>
