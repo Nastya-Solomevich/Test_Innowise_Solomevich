@@ -8,7 +8,7 @@ use DateTime;
 
 class Task6 
 {
-    public static function main(int $year, int $lastYear, int $month, int $lastMonth, string $day = "Monday")
+    public static function dayOfWeek(int $year, int $lastYear, int $month, int $lastMonth, int $day = 1): int 
     {
         $count = 0;
         $from = new DateTime($year."-".$month."-1");
@@ -16,14 +16,19 @@ class Task6
         $interval = new DateInterval('P1D');
         $period = new DatePeriod($from, $interval, $to);
         foreach($period as $date){
-            if (($date->format("d") == 01) and ($date -> format("w") == 1)) {
+            if (($date->format("d") == 01) and ($date -> format("w") == $day)) {
                 $count++;
             }
         }
 
-        echo $count;
+        return $count;
     }
 }
-// date("D", mktime(0, 0, 0, $date->format("mdY"))) == $day
-Task6 :: main(2022, 2022, 1, 12);
-?>  
+
+function main() 
+{
+    echo Task6 :: dayOfWeek(2022, 2022, 1, 12);
+}
+
+main();
+
