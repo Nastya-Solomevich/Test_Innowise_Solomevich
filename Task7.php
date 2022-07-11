@@ -1,20 +1,28 @@
-<?php 
+<?php
 
 namespace Test_Innowise\Task7;
 
 class Task7
 {
-    public static function main (array $arr, int $position) 
+    public static function keysNormal(array $arr, int $position): array
     {
-        $arr = array_values($arr);
         unset($arr[$position]);
-        $arr_result = array_values(array_filter($arr));
-        return $arr_result;
+        $arrKeys = [];
+        $newArr = [];
+        for ($i = 0; $i < count($arr); $i++) {
+            array_push($arrKeys, $i);
+        }
+        $newArr = array_combine($arrKeys, $arr);
+        return $newArr;
     }
-
 }
 
-$array = [1, 2, 3, 4, 5, 6];
-print_r($array);
-echo "<br>";
-print_r(Task7 :: main($array, 3));
+function main()
+{
+    $array = [1, 2, 3, 4, 5, 6];
+    print_r($array);
+    echo "<br>";
+    print_r(Task7::keysNormal($array, 3));
+}
+
+main();
