@@ -10,31 +10,36 @@ namespace Test_Innowise\Task12;
 
         function __construct(int $firstNumber, int $secondNumber)
         {
-            $this -> firstNumber = $firstNumber;
-            $this -> secondNumber = $secondNumber;
+            $this->firstNumber = $firstNumber;
+            $this->secondNumber = $secondNumber;
             
         }
 
-        public function add() : object {
+        public function add() : object 
+        {
             $this->res = $this->firstNumber + $this->secondNumber;
             return $this;
         }
 
-        public function multiply() : object {
-            $this -> res = $this->firstNumber*$this->secondNumber;
+        public function multiply() : object 
+        {
+            $this->res = $this->firstNumber * $this->secondNumber;
             return $this;
         }
 
-        public function divideBy(int $number) : int {
-            
-            return $this -> res = $this->res/$number;
+        public function divideBy(int $number) : int 
+        {
+            return $this->res = $this->res/$number;
         }
 
-        public function substract() : object {
-            if ($this->firstNumber>=$this->secondNumber) {
+        public function substract() : object 
+        {
+            if ($this->firstNumber >= $this->secondNumber) 
+            {
                 $this->res = $this->firstNumber - $this->secondNumber;
             }
-            else {
+            else 
+            {
                 $this->res = $this->secondNumber - $this->firstNumber;
             }
             
@@ -43,7 +48,8 @@ namespace Test_Innowise\Task12;
 
     }
 
-    function main() {
+    function main() 
+    {
         $mycalc = new MyCalculator(12, 6);
         echo $mycalc->substract()->divideBy(3);
     }
